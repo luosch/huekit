@@ -28,15 +28,21 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 
 		didChangeColor(colorSquarePicker.color)
-
+        colorSquarePicker!.addTarget(self, action: #selector(colorBarPickerValueChanged(_:)), for: .valueChanged)
 	}
 
-	@IBAction func colorBarPickerValueChanged(_ sender: ColorBarPicker) {
-		
-		colorSquarePicker.hue = sender.hue
-		didChangeColor(colorSquarePicker.color)
-
-	}
+//    @IBAction func colorBarPickerValueChanged(_ sender: ColorBarPicker) {
+//
+//        colorSquarePicker.hue = sender.hue
+//        didChangeColor(colorSquarePicker.color)
+//
+//    }
+    
+    @objc func colorBarPickerValueChanged(_ sender: ColorBarPicker) {
+        colorSquarePicker.hue = sender.hue
+        didChangeColor(colorSquarePicker.color)
+        
+    }
 	
 	@IBAction func colorSquarePickerValueChanged(_ sender: ColorSquarePicker) {
 		
